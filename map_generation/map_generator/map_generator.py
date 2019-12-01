@@ -1,6 +1,6 @@
 # Program made by Rafael Pontes
 
-from random import randint
+from random import randint, random
 
 tiles_dict = {
     "food": ".",
@@ -14,13 +14,14 @@ tiles = list(tiles_dict.values())
 NUM_TILES = len(tiles)
 
 class MapIndividual():
-    def __init__(self, w = 10, h = 10, m = None):
+    def __init__(self, w = 10, h = 10, mutation_rate = 0.05, matrix = None):
         self.width = w
         self.height = h
-        if (m == None):
+        self.mutation_rate = mutation_rate
+        if (matrix == None):
             self.generate_random_map()
         else:
-            self.matrix = m
+            self.matrix = matrix
 
     def __str__(self):
         s = ""
@@ -35,11 +36,22 @@ class MapIndividual():
         for i in range(self.width):
             self.matrix.append(list())
             for j in range(self.height):
-                index = randint(0, NUM_TILES - 1)
-                self.matrix[i].append(tiles[index])
+                self.matrix[i].append(self.get_random_tile())
 
     def get_fitness(self):
-        return 0
+        # Based on formula from Safak et al's paper.
+        # Title: "Automated Maze Generation for Ms. Pac-Man Using Genetic Algorithms"
+        # 0.4 * is_finishable - 0.1 *
+        # intersected_block_ratio + 0.2 *
+        # homogeneity_factor + 0.2
+        # * horizontal_vertical_ratio + 0.2 *
+        # block_size_ratio
+ 
+        score = 0
+        score += 10.0 * int(self.is_playable())
+        score -= 0.1 * self.tile_square_count(tiles_dict["wall"])
+        score -= 0.1 * self.tile_square_count(tiles_dict["food"])
+        return score
     
     def get_neighbors(self, cell):
         x, y = cell.pos[0], cell.pos[1]
@@ -141,6 +153,36 @@ class MapIndividual():
                     # There's at least one unreachabled cell
                     return False
         return True
+    
+    def tile_square_count(self, tile):
+        # Searches for square of same tile type
+        count = 0
+        for i in range(self.width):
+            for j in range(self.height):
+                if self.found_tile_square((i, j), tile):
+                    count += 1
+        return count
+    
+    def found_tile_square(self, pos, tile):
+        x, y = pos[0], pos[1]
+        points = [(x, y), (x+1, y), (x, y+1), (x+1, y+1)]
+        for point in points:
+            cell = self.get_cell(point)
+            if (cell == None or cell.tile == tile):
+                return False
+        return True
+
+    def mutate(self):
+        for i in range(self.width):
+            for j in range(self.height):
+                if (self.should_mutate()):
+                    self.matrix[i][j] = self.get_random_tile()
+    
+    def get_random_tile(self):
+        return tiles[randint(0, len(tiles)-1)]
+    
+    def should_mutate(self):
+        return (random() < self.mutation_rate)
 
 
 class MazeCell():
@@ -162,11 +204,19 @@ if __name__ == "__main__":
     for i in range(1):
         individual = MapIndividual()
         while(not individual.is_playable()):
-            individual = MapIndividual()
+            individual = MapIndividual(mutation_rate=0.5)
         individuals.append(individual)
     
     for i in individuals:
         print("==============")
         print(i)
         print("playable? %s" % (str(i.is_playable())))
+        print("score: %f" % (i.get_fitness()))
+        print("mutating...")
+        i.mutate()
         print("==============")
+        print(i)
+        print("playable? %s" % (str(i.is_playable())))
+        print("score: %f" % (i.get_fitness()))
+        print("==============")
+        
