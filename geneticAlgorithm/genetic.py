@@ -65,7 +65,7 @@ for generation in range(num_generations):
 
             employee_writer.writerow([generation,ind,new_population[ind][0],new_population[ind][1], new_population[ind][2]])
         
-        os.system('python pacman.py -p ReflexAgent -l originalClassic -q -n 5')
+        os.system('python pacman.py -p ReflexAgent -l originalClassic -q -n 10')
 
         with open('scores.txt', mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
