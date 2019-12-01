@@ -15,8 +15,17 @@
 from util import manhattanDistance
 from game import Directions
 import random, util
+import csv
 
 from game import Agent
+
+with open('weights.txt', mode='r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    for row in csv_reader:
+        w1 = float(row['w1'])
+        w2 = float(row['w2'])
+        w3 = float(row['w3'])
+    print w1,w2,w3
 
 class ReflexAgent(Agent):
     """
@@ -89,9 +98,5 @@ class ReflexAgent(Agent):
         H1 = closestfood
         H2 = -ghost_dist
         H3 = len(foodList) * 100
-
-        w1 = 1
-        w2 = 1
-        w3 = 1
 
         return w1*H1 + w2*H2 + w3*H3
