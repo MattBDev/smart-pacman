@@ -86,10 +86,18 @@ class GameState:
 #        GameState.explored.add(self)
         if self.isWin() or self.isLose(): return []
 
+        legalActions = []
+
         if agentIndex == 0:  # Pacman is moving
-            return PacmanRules.getLegalActions( self )
+            legalActions = PacmanRules.getLegalActions( self )
         else:
-            return GhostRules.getLegalActions( self, agentIndex )
+            legalActions = GhostRules.getLegalActions( self, agentIndex )
+            
+        legal = []
+        for action in legalActions:
+            if(action != 'Stop'):
+                legal.append(action)
+        return legal
 
     def generateSuccessor( self, agentIndex, action):
         """
