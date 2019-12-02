@@ -100,7 +100,7 @@ def depthFirstSearch(problem):
         for child in node.expand(problem):
             if child.state not in explored:
                 frontier.push(child)
-    return []
+    return None
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
@@ -115,8 +115,10 @@ def breadthFirstSearch(problem):
         if problem.isGoalState(node.state): return node.solution()
         explored.add(node.state)
         for child in node.expand(problem):
-            if (child.state not in explored) and (child not in frontier.list):
+            if (child.state not in explored) and (child.state not in frontier.list):
+                if problem.isGoalState(child.state): return child.solution()
                 frontier.push(child)
+    return None
 
 def uniformCostSearch(problem):
     """Search the node of least total cost first."""
@@ -131,13 +133,11 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
-def aStarSearch(problem, heuristic=nullHeuristic):
-    """Search the node that has the lowest combined cost and heuristic first."""
-    "*** YOUR CODE HERE ***"
+def bestFirstSearch(problem, heuristic=nullHeuristic):
     node = Node(problem.getStartState())
     if problem.isGoalState(problem.getStartState()): return node.solution()
     frontier = util.PriorityQueue()
-    frontier.update(node, node.path_cost+heuristic(node.state, problem))
+    frontier.update(node, heuristic(node.state, problem))
     explored = set()
     while not frontier.isEmpty():
         node = frontier.pop()
@@ -145,7 +145,25 @@ def aStarSearch(problem, heuristic=nullHeuristic):
         explored.add(node.state)
         for child in node.expand(problem):
             if (child.state not in explored) and (child not in frontier.heap):
-                frontier.update(child, child.path_cost+heuristic(child.state, problem))
+                frontier.update(child, heuristic(child.state, problem))
+    return None
+
+def aStarSearch(problem, heuristic=nullHeuristic):
+    """Search the node that has the lowest combined cost and heuristic first."""
+    "*** YOUR CODE HERE ***"
+    node = Node(problem.getStartState())
+    if problem.isGoalState(problem.getStartState()): return node.solution()
+    frontier = util.PriorityQueue()
+    frontier.update(node, node.path_cost + heuristic(node.state, problem))
+    explored = set()
+    while not frontier.isEmpty():
+        node = frontier.pop()
+        if problem.isGoalState(node.state): return node.solution()
+        explored.add(node.state)
+        for child in node.expand(problem):
+            if (child.state not in explored) and (child not in frontier.heap):
+                frontier.update(child, child.path_cost + heuristic(child.state, problem))
+    return None
 
 # Abbreviations
 bfs = breadthFirstSearch

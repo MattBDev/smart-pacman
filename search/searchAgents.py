@@ -63,7 +63,7 @@ class SearchAgent(Agent):
     Note: You should NOT change any code in SearchAgent
     """
 
-    def __init__(self, fn='depthFirstSearch', prob='FoodSearchProblem', heuristic='foodHeuristic'):
+    def __init__(self, fn='bestFirstSearch', prob='FoodSearchProblem', heuristic='foodHeuristic'):
         # Warning: some advanced Python magic is employed below to find the right functions and problems
 
         # Get the search function from the name and heuristic
