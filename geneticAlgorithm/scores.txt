@@ -1,0 +1,1 @@
+geration,id,w1,w2,w3,averageScore,winRate,scores
