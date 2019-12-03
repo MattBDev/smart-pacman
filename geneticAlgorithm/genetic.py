@@ -2,7 +2,7 @@ import numpy
 import csv
 import os
 import pandas as pd
-from statistics import mean
+from statistics import mean, median
 
 
 def select_mating_pool(pop, fitness, num_parents):
@@ -83,7 +83,7 @@ def populational_indicators(generation):
     max_score = max(aux)
     min_score = min(aux)
     aux = [float(i) for i in current_population["winRate"].tolist()]
-    population_winning_rate = mean(aux)
+    population_winning_rate = median(aux)
     fit = numpy.array(aux)
 
     indicators = [fit, average_score, max_score, min_score, population_winning_rate]
@@ -159,5 +159,5 @@ def evolution_by_generation_limit(num_generations, population, pop_size):
 
 pop_size = population_size(15, 3)  # pop_size = (sol_per_pop,num_weights)
 initial_pop = initial_population(pop_size)
-evolution_by_generation_limit(100, initial_pop, pop_size)
+evolution_by_generation_limit(64, initial_pop, pop_size)
 #evolution_by_winning_rate_limit(0.3, initial_pop, pop_size)
