@@ -1,0 +1,1 @@
+### Implementações, simulações e experimentos documentados nesta pasta foram desenvolvidos e obtidos por Rafael Pontes.

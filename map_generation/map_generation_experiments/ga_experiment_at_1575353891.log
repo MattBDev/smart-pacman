@@ -1,0 +1,384 @@
+# Test 1:
+ 10 iterations,
+ 10 population size,
+ 10 map side size,
+ 0.010000 mutation rate
+ 0.430517 seconds of experiment duration
+ 455.000000 best fitness
+
+# Test 2:
+ 10 iterations,
+ 10 population size,
+ 11 map side size,
+ 0.010000 mutation rate
+ 0.565502 seconds of experiment duration
+ 410.000000 best fitness
+
+# Test 3:
+ 10 iterations,
+ 10 population size,
+ 15 map side size,
+ 0.010000 mutation rate
+ 1.168824 seconds of experiment duration
+ 240.000000 best fitness
+
+# Test 4:
+ 10 iterations,
+ 10 population size,
+ 20 map side size,
+ 0.010000 mutation rate
+ 1.475224 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 5:
+ 10 iterations,
+ 10 population size,
+ 10 map side size,
+ 0.050000 mutation rate
+ 0.425998 seconds of experiment duration
+ 430.000000 best fitness
+
+# Test 6:
+ 10 iterations,
+ 10 population size,
+ 11 map side size,
+ 0.050000 mutation rate
+ 0.646730 seconds of experiment duration
+ 445.000000 best fitness
+
+# Test 7:
+ 10 iterations,
+ 10 population size,
+ 15 map side size,
+ 0.050000 mutation rate
+ 1.067230 seconds of experiment duration
+ 305.000000 best fitness
+
+# Test 8:
+ 10 iterations,
+ 10 population size,
+ 20 map side size,
+ 0.050000 mutation rate
+ 1.532361 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 9:
+ 10 iterations,
+ 10 population size,
+ 10 map side size,
+ 0.100000 mutation rate
+ 0.464918 seconds of experiment duration
+ 465.000000 best fitness
+
+# Test 10:
+ 10 iterations,
+ 10 population size,
+ 11 map side size,
+ 0.100000 mutation rate
+ 0.537631 seconds of experiment duration
+ 415.000000 best fitness
+
+# Test 11:
+ 10 iterations,
+ 10 population size,
+ 15 map side size,
+ 0.100000 mutation rate
+ 1.013614 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 12:
+ 10 iterations,
+ 10 population size,
+ 20 map side size,
+ 0.100000 mutation rate
+ 1.389655 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 13:
+ 10 iterations,
+ 100 population size,
+ 10 map side size,
+ 0.010000 mutation rate
+ 3.957710 seconds of experiment duration
+ 470.000000 best fitness
+
+# Test 14:
+ 10 iterations,
+ 100 population size,
+ 11 map side size,
+ 0.010000 mutation rate
+ 5.742246 seconds of experiment duration
+ 425.000000 best fitness
+
+# Test 15:
+ 10 iterations,
+ 100 population size,
+ 15 map side size,
+ 0.010000 mutation rate
+ 10.937677 seconds of experiment duration
+ 260.000000 best fitness
+
+# Test 16:
+ 10 iterations,
+ 100 population size,
+ 20 map side size,
+ 0.010000 mutation rate
+ 12.062958 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 17:
+ 10 iterations,
+ 100 population size,
+ 10 map side size,
+ 0.050000 mutation rate
+ 4.087193 seconds of experiment duration
+ 480.000000 best fitness
+
+# Test 18:
+ 10 iterations,
+ 100 population size,
+ 11 map side size,
+ 0.050000 mutation rate
+ 5.130178 seconds of experiment duration
+ 445.000000 best fitness
+
+# Test 19:
+ 10 iterations,
+ 100 population size,
+ 15 map side size,
+ 0.050000 mutation rate
+ 10.274660 seconds of experiment duration
+ 305.000000 best fitness
+
+# Test 20:
+ 10 iterations,
+ 100 population size,
+ 20 map side size,
+ 0.050000 mutation rate
+ 12.606987 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 21:
+ 10 iterations,
+ 100 population size,
+ 10 map side size,
+ 0.100000 mutation rate
+ 3.933605 seconds of experiment duration
+ 450.000000 best fitness
+
+# Test 22:
+ 10 iterations,
+ 100 population size,
+ 11 map side size,
+ 0.100000 mutation rate
+ 5.292801 seconds of experiment duration
+ 445.000000 best fitness
+
+# Test 23:
+ 10 iterations,
+ 100 population size,
+ 15 map side size,
+ 0.100000 mutation rate
+ 10.004438 seconds of experiment duration
+ 275.000000 best fitness
+
+# Test 24:
+ 10 iterations,
+ 100 population size,
+ 20 map side size,
+ 0.100000 mutation rate
+ 12.138972 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 25:
+ 10 iterations,
+ 100 population size,
+ 10 map side size,
+ 0.010000 mutation rate
+ 4.506130 seconds of experiment duration
+ 465.000000 best fitness
+
+# Test 26:
+ 10 iterations,
+ 100 population size,
+ 11 map side size,
+ 0.010000 mutation rate
+ 5.126570 seconds of experiment duration
+ 445.000000 best fitness
+
+# Test 27:
+ 10 iterations,
+ 100 population size,
+ 15 map side size,
+ 0.010000 mutation rate
+ 6.845016 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 28:
+ 10 iterations,
+ 100 population size,
+ 20 map side size,
+ 0.010000 mutation rate
+ 11.903303 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 29:
+ 10 iterations,
+ 100 population size,
+ 10 map side size,
+ 0.050000 mutation rate
+ 4.293431 seconds of experiment duration
+ 480.000000 best fitness
+
+# Test 30:
+ 10 iterations,
+ 100 population size,
+ 11 map side size,
+ 0.050000 mutation rate
+ 5.088730 seconds of experiment duration
+ 425.000000 best fitness
+
+# Test 31:
+ 10 iterations,
+ 100 population size,
+ 15 map side size,
+ 0.050000 mutation rate
+ 10.768879 seconds of experiment duration
+ 345.000000 best fitness
+
+# Test 32:
+ 10 iterations,
+ 100 population size,
+ 20 map side size,
+ 0.050000 mutation rate
+ 12.441466 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 33:
+ 10 iterations,
+ 100 population size,
+ 10 map side size,
+ 0.100000 mutation rate
+ 4.437289 seconds of experiment duration
+ 465.000000 best fitness
+
+# Test 34:
+ 10 iterations,
+ 100 population size,
+ 11 map side size,
+ 0.100000 mutation rate
+ 5.362917 seconds of experiment duration
+ 420.000000 best fitness
+
+# Test 35:
+ 10 iterations,
+ 100 population size,
+ 15 map side size,
+ 0.100000 mutation rate
+ 9.830645 seconds of experiment duration
+ 320.000000 best fitness
+
+# Test 36:
+ 10 iterations,
+ 100 population size,
+ 20 map side size,
+ 0.100000 mutation rate
+ 12.778119 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 37:
+ 100 iterations,
+ 10 population size,
+ 10 map side size,
+ 0.010000 mutation rate
+ 4.956326 seconds of experiment duration
+ 505.000000 best fitness
+
+# Test 38:
+ 100 iterations,
+ 10 population size,
+ 11 map side size,
+ 0.010000 mutation rate
+ 5.989303 seconds of experiment duration
+ 495.000000 best fitness
+
+# Test 39:
+ 100 iterations,
+ 10 population size,
+ 15 map side size,
+ 0.010000 mutation rate
+ 12.224708 seconds of experiment duration
+ 350.000000 best fitness
+
+# Test 40:
+ 100 iterations,
+ 10 population size,
+ 20 map side size,
+ 0.010000 mutation rate
+ 15.120523 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 41:
+ 100 iterations,
+ 10 population size,
+ 10 map side size,
+ 0.050000 mutation rate
+ 4.509949 seconds of experiment duration
+ 485.000000 best fitness
+
+# Test 42:
+ 100 iterations,
+ 10 population size,
+ 11 map side size,
+ 0.050000 mutation rate
+ 5.517715 seconds of experiment duration
+ 430.000000 best fitness
+
+# Test 43:
+ 100 iterations,
+ 10 population size,
+ 15 map side size,
+ 0.050000 mutation rate
+ 9.384961 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 44:
+ 100 iterations,
+ 10 population size,
+ 20 map side size,
+ 0.050000 mutation rate
+ 13.530463 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 45:
+ 100 iterations,
+ 10 population size,
+ 10 map side size,
+ 0.100000 mutation rate
+ 4.391798 seconds of experiment duration
+ 410.000000 best fitness
+
+# Test 46:
+ 100 iterations,
+ 10 population size,
+ 11 map side size,
+ 0.100000 mutation rate
+ 4.566629 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 47:
+ 100 iterations,
+ 10 population size,
+ 15 map side size,
+ 0.100000 mutation rate
+ 7.316031 seconds of experiment duration
+ 0.000000 best fitness
+
+# Test 48:
+ 100 iterations,
+ 10 population size,
+ 20 map side size,
+ 0.100000 mutation rate
+ 12.348058 seconds of experiment duration
+ 0.000000 best fitness
+
