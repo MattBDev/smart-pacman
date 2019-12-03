@@ -39,7 +39,6 @@ class PerceptronClassifier:
         """
         The training loop for the perceptron passes through the training data several
         times and updates the weight vector for each label based on classification errors.
-        See the project description for details.
 
         Use the provided self.weights[label] data structure so that
         the classify method works correctly. Also, recall that a
