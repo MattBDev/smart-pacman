@@ -13,6 +13,8 @@
 
 
 # Perceptron implementation
+from keras.models import Sequential
+from keras.layers import Dense, Activation
 import util
 PRINT = True
 
@@ -30,6 +32,16 @@ class PerceptronClassifier:
         self.weights = {}
         for label in legalLabels:
             self.weights[label] = util.Counter() # this is the data-structure you should use
+        
+        self.model = Sequential()
+        self.model.add(Dense(16, activation='relu', input_dim=len(self.legalLabels)))
+        # self.model.add(Dropout(0.2))
+        self.model.add(Dense(16, activation='relu'))
+        # self.model.add(Dropout(0.2))
+        self.model.add(Dense(len(self.legalLabels), activation='softmax'))
+        self.model.compile(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
 
     def setWeights(self, weights):
         assert len(weights) == len(self.legalLabels);
@@ -45,17 +57,18 @@ class PerceptronClassifier:
         datum is a counter from features to values for those features
         (and thus represents a vector a values).
         """
+        self.model.fit(trainingData, trainingLabels, epochs=1, batch_size=8)
 
         self.features = trainingData[0].keys() # could be useful later
         # DO NOT ZERO OUT YOUR WEIGHTS BEFORE STARTING TRAINING, OR
         # THE AUTOGRADER WILL LIKELY DEDUCT POINTS.
+        
 
         for iteration in range(self.max_iterations):
             print "Starting iteration ", iteration, "..."
             for i in range(len(trainingData)):
                 y_value = self.classify([trainingData[i]])[0]
-
-
+                
                 if y_value != trainingLabels[i]:
                     self.weights[trainingLabels[i]] += trainingData[i]
                     self.weights[y_value] -= trainingData[i]
@@ -69,14 +82,18 @@ class PerceptronClassifier:
 
         Recall that a datum is a util.counter...
         """
-        guesses = []
-        for datum in data:
-            vectors = util.Counter()
-            for l in self.legalLabels:
-                vectors[l] = self.weights[l] * datum
-            guesses.append(vectors.argMax())
 
-        return guesses
+        predictions = self.model.predict(test_images)
+        return predictions
+
+        # guesses = []
+        # for datum in data:
+        #     vectors = util.Counter()
+        #     for l in self.legalLabels:
+        #         vectors[l] = self.weights[l] * datum
+        #     guesses.append(vectors.argMax())
+
+        # return guesses
 
 
     def findHighWeightFeatures(self, label):
