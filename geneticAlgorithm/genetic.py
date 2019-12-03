@@ -14,6 +14,8 @@ def select_mating_pool(pop, fitness, num_parents):
         parents[parent_num, :] = pop[max_fitness_idx, :]
         fitness[max_fitness_idx] = -99999999999
     return parents
+
+
 def crossover(parents, offspring_size):
     offspring = numpy.empty(offspring_size)
     # The point at which crossover takes place between two parents. Usually it is at the center.
@@ -29,6 +31,8 @@ def crossover(parents, offspring_size):
         # The new offspring will have its second half of its genes taken from the second parent.
         offspring[k, crossover_point:] = parents[parent2_idx, crossover_point:]
     return offspring
+
+
 def mutation(offspring_crossover):
     # Mutation changes a single gene in each offspring randomly.
     for idx in range(offspring_crossover.shape[0]):
@@ -37,16 +41,22 @@ def mutation(offspring_crossover):
         random_value = numpy.random.uniform(-1.0, 1.0, 1)
         offspring_crossover[idx, gene] = offspring_crossover[idx, gene] + random_value
     return offspring_crossover
+
+
 def population_size(sol_per_pop, num_weights):
     # Defining the population size.
     pop_size = (sol_per_pop,
                 num_weights)  # The population will have sol_per_pop chromosome where each chromosome has num_weights genes.
     return pop_size
+
+
 def initial_population(pop_size):
     # Creating the initial population.
     new_population = numpy.random.uniform(low=-20.0, high=20.0, size=pop_size)
     print(new_population)
     return new_population
+
+
 def populational_test(generation, population):
     fit = []
     winRate = 0
@@ -63,6 +73,8 @@ def populational_test(generation, population):
         os.system('python pacman.py -p ReflexAgent -l originalClassic -q -n 10')
 
     return populational_indicators(generation)
+
+
 def populational_indicators(generation):
     individual_scores = pd.read_csv("scores.txt", delimiter=",")
     current_population = individual_scores[individual_scores["generation"] == generation]
@@ -76,6 +88,8 @@ def populational_indicators(generation):
 
     indicators = [fit, average_score, max_score, min_score, population_winning_rate]
     return indicators
+
+
 def mutate_population(fitness, num_parents_mating, pop_size, population):
     parents = select_mating_pool(population, fitness, num_parents_mating)
 
@@ -89,6 +103,8 @@ def mutate_population(fitness, num_parents_mating, pop_size, population):
     population[0:parents.shape[0], :] = parents
     population[parents.shape[0]:, :] = offspring_mutation
     return population
+
+
 def set_files():
     with open('results.txt', 'w') as file:
         writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -114,17 +130,15 @@ def evolution_by_winning_rate_limit(winning_rate_limit, population, pop_size):
 
         # Measing the fitness of each chromosome in the population.
         results = populational_test(generation, population)
-        population = mutate_population(fitness=results[0], num_parents_mating=5, pop_size=pop_size, population=population)
+        population = mutate_population(fitness=results[0], num_parents_mating=5, pop_size=pop_size,
+                                       population=population)
 
         with open('results.txt', 'a') as employee_file:
             employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             employee_writer.writerow([generation, results[1], results[2], results[3], results[4]])
 
-        generation+=1
+        generation += 1
         winning_rate = results[4]
-
-
-
 
 
 def evolution_by_generation_limit(num_generations, population, pop_size):
@@ -135,16 +149,15 @@ def evolution_by_generation_limit(num_generations, population, pop_size):
 
         # Measing the fitness of each chromosome in the population.
         results = populational_test(generation, population)
-        population = mutate_population(fitness=results[0], num_parents_mating=5, pop_size=pop_size, population=population)
+        population = mutate_population(fitness=results[0], num_parents_mating=5, pop_size=pop_size,
+                                       population=population)
 
         with open('results.txt', 'a') as employee_file:
             employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             employee_writer.writerow([generation, results[1], results[2], results[3], results[4]])
 
 
-
-pop_size = population_size(10, 3)  # pop_size = (sol_per_pop,num_weights)
+pop_size = population_size(15, 3)  # pop_size = (sol_per_pop,num_weights)
 initial_pop = initial_population(pop_size)
-#evolution_by_generation_limit(2, initial_pop, pop_size)
-evolution_by_winning_rate_limit(0.1, initial_pop, pop_size)
-
+evolution_by_generation_limit(100, initial_pop, pop_size)
+#evolution_by_winning_rate_limit(0.3, initial_pop, pop_size)
